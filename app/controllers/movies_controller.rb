@@ -22,6 +22,11 @@ class MoviesController < ApplicationController
     if !@set_r
       @set_r = Hash.new
     end
+    @checked = params[:ratings]
+    if params[:ratings]
+       @checked = params[:ratings].include?(rating) 
+    else true 
+    end
   end
 
   def new
