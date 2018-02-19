@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
     end
     @movies = Movie.all
     if params[:ratings]
-      @movies = Movie.where(:ratings => params[:ratings].keys).order(params[:sort_by])
+      @movies = Movie.where(:rating => params[:ratings].keys).order(params[:sort_by])
     end
     @column_sort = params[:sort_by]
     @all_ratings = Movie.all_ratings
