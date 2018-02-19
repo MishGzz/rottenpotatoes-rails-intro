@@ -24,14 +24,14 @@ class MoviesController < ApplicationController
     elsif @sort_by
       @movies = Movie.order(params[:sort_by])
     else
-      @movie = Movie.all
+      @movies = Movie.all
     end
     if !@ratings
       @ratings = Hash.new
     end
     @movies = Movie.all
     if params[:ratings]
-      @movie = Movie.where(:ratings => params[:ratings].keys).order(params[:sort_by])
+      @movies = Movie.where(:ratings => params[:ratings].keys).order(params[:sort_by])
     end
     @column_sort = params[:sort_by]
     @all_ratings = Movie.all_ratings
